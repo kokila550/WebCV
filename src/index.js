@@ -12,7 +12,7 @@ const SideNavigaionBar = (props) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a className="navbar-brand js-scroll-trigger" href="#page-top">
-          <span className="d-block d-lg-none">Start Bootstrap</span>
+          <span className="d-block d-lg-none">Profile</span>
           <span className="d-none d-lg-block">
             <img className="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="" />
           </span>
@@ -48,16 +48,17 @@ const SideNavigaionBar = (props) => {
 
 };
 
-const AboutComponent = (props) => {
-  return (
-    <div>
-      <section className="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+class HomePage extends React.Component{
+  render (){
+    return(
+      <div className="container-fluid p-0">
+         <section className="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div className="my-auto">
-          <h1 className="mb-0">Name&nbsp;
-    <span className="text-primary">Surname</span>
+          <h1 className="mb-0">Clarence
+            <span className="text-primary">Taylor</span>
           </h1>
           <div className="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-    <a href="mailto:name@email.com">name@email.com</a>
+            <a href="mailto:name@email.com">name@email.com</a>
           </div>
           <p className="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
           <ul className="list-inline list-social-icons mb-0">
@@ -96,18 +97,68 @@ const AboutComponent = (props) => {
           </ul>
         </div>
       </section>
+      </div>
+    )
+  }
+};
+
+const AboutComponent = (props) => {
+  return (
+    <div>
+     
+     <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">Clarence
+            <span class="text-primary">Taylor</span>
+          </h1>
+          <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
+            <a href="mailto:name@email.com">name@email.com</a>
+          </div>
+          <p class="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+          <ul class="list-inline list-social-icons mb-0">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+         
     </div>
   );
 };
 
-const ExperienceDetail = (props) => {
-  return (
-    <div>
-      <section className="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
-        <div className="my-auto">
-          <h2 className="mb-5">Experience</h2>
-
-          <div className="resume-item d-flex flex-column flex-md-row mb-5">
+const DevelopmentExperiance = (props) => {
+  return(
+         <div className="resume-item d-flex flex-column flex-md-row mb-5">
             <div className="resume-content mr-auto">
               <h3 className="mb-0">Senior Web Developer</h3>
               <div className="subheading mb-3">Intelitec Solutions </div>
@@ -117,44 +168,75 @@ const ExperienceDetail = (props) => {
               <span className="text-primary">March 2013 - Present</span>
             </div>
           </div>
+  );
+};
 
-          <div className="resume-item d-flex flex-column flex-md-row mb-5">
+var devExpData = [
+  {
+    Title:"Associate Software Engineer",
+    TitleDisciption: "ABC Solutions",
+    Information: "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.",
+    TimePeriod: "Jan 2014 - 2015 Jan",
+  }
+];
+
+var educationData = [
+  {
+    Title:"University of Dublin",
+    TitleDisciption: "Bachelor of Science",
+    Information: "Computer Science",
+    TimePeriod: "Jan 2014 - 2015 Jan",
+  }
+];
+
+
+
+const DevelopmentExperianceItemList = (props) => {
+  return(
+    <div>{props.experiences.map(experience => <DevelopmentExperience {...experience} />)}</div>
+  );
+}
+
+const EducationDetails = (props) => {
+  return(
+    <div className="resume-item d-flex flex-column flex-md-row mb-5">
+    <div className="resume-content mr-auto">
+      <h3 className="mb-0">University of Colorado Boulder</h3>
+      <div className="subheading mb-3">Bachelor of Science</div>
+      <div>Computer Science - Web Development Track</div>
+      <p>GPA: 3.23</p>
+    </div>
+    <div className="resume-date text-md-right">
+      <span className="text-primary">August 2006 - May 2010</span>
+    </div>
+  </div>
+  );
+}
+
+const DevelopmentExperience = (props)=>{
+  return(
+    <div className="resume-item d-flex flex-column flex-md-row mb-5">
             <div className="resume-content mr-auto">
-              <h3 className="mb-0">Web Developer</h3>
-              <div className="subheading mb-3">Intelitec Solutions</div>
-              <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+              <h3 className="mb-0">{props.Title}</h3>
+              <div className="subheading mb-3">{props.TitleDisciption}</div>
+              <p>{props.Information}</p>
             </div>
             <div className="resume-date text-md-right">
-              <span className="text-primary">December 2011 - March 2013</span>
+              <span className="text-primary">{props.TimePeriod}</span>
             </div>
           </div>
+  );
+}
 
-          <div className="resume-item d-flex flex-column flex-md-row mb-5">
-            <div className="resume-content mr-auto">
-              <h3 className="mb-0">Junior Web Designer</h3>
-              <div className="subheading mb-3">Shout! Media Productions</div>
-              <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">July 2010 - December 2011</span>
-            </div>
+const ExperienceDetail = (props) => {
+  return (
+    <div>
+      <section className="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+        <div className="my-auto">
+          <h2 className="mb-5">Experience</h2>
+          <DevelopmentExperianceItemList experiences={devExpData}/>
           </div>
-
-          <div className="resume-item d-flex flex-column flex-md-row">
-            <div className="resume-content mr-auto">
-              <h3 className="mb-0">Web Design Intern</h3>
-              <div className="subheading mb-3">Shout! Media Productions</div>
-              <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">September 2008 - June 2010</span>
-            </div>
-          </div>
-
-        </div>
-
       </section>
-
     </div>
   );
 };
@@ -314,6 +396,7 @@ const Page = (props) => {
   return (
     <div>
       <SideNavigaionBar />
+      
       <div className="container-fluid p-0" >
         <AboutComponent />
         <ExperienceDetail />
