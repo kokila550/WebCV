@@ -48,73 +48,19 @@ const SideNavigaionBar = (props) => {
 
 };
 
-class HomePage extends React.Component{
-  render (){
-    return(
-      <div className="container-fluid p-0">
-         <section className="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-        <div className="my-auto">
-          <h1 className="mb-0">Clarence
-            <span className="text-primary">Taylor</span>
-          </h1>
-          <div className="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-            <a href="mailto:name@email.com">name@email.com</a>
-          </div>
-          <p className="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-          <ul className="list-inline list-social-icons mb-0">
-            <li className="list-inline-item">
-              <a href="#">
-                <span className="fa-stack fa-lg">
-                  <i className="fa fa-circle fa-stack-2x"></i>
-                  <i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">
-                <span className="fa-stack fa-lg">
-                  <i className="fa fa-circle fa-stack-2x"></i>
-                  <i className="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">
-                <span className="fa-stack fa-lg">
-                  <i className="fa fa-circle fa-stack-2x"></i>
-                  <i className="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#">
-                <span className="fa-stack fa-lg">
-                  <i className="fa fa-circle fa-stack-2x"></i>
-                  <i className="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-      </div>
-    )
-  }
-};
 
 const AboutComponent = (props) => {
   return (
-    <div>
-     
+    <div>    
      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
-          <h1 class="mb-0">Clarence
-            <span class="text-primary">Taylor</span>
+          <h1 class="mb-0">Name &nbsp;
+            <span class="text-primary">Suername</span>
           </h1>
-          <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-            <a href="mailto:name@email.com">name@email.com</a>
+          <div class="subheading mb-5">1111 Cross Street · Colombo 9 · 
+            <a href="mailto:name@email.com">someone@someware.com</a>
           </div>
-          <p class="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+          <p class="mb-5">Experienced software engineer with agile framework backend development with solid knowledge in .net framework. Supportive and enthusiastic team player dedicated to streamlined process and efficiently resolving project related issue. Quick learner who is willing to take challenge </p>
           <ul class="list-inline list-social-icons mb-0">
             <li class="list-inline-item">
               <a href="#">
@@ -182,13 +128,13 @@ var devExpData = [
 
 var educationData = [
   {
-    Title:"University of Dublin",
+    Title:"University Collage Dublin",
     TitleDisciption: "Bachelor of Science",
     Information: "Computer Science",
+    GPA: "3.48",
     TimePeriod: "Jan 2014 - 2015 Jan",
   }
 ];
-
 
 
 const DevelopmentExperianceItemList = (props) => {
@@ -197,17 +143,25 @@ const DevelopmentExperianceItemList = (props) => {
   );
 }
 
+const EducationDetailList = (props) =>{
+  return(
+    <div>
+      {props.educationdetails.map(educationdetail => <EducationDetails{...educationdetail}/>)}
+    </div>
+  );
+};
+
 const EducationDetails = (props) => {
   return(
     <div className="resume-item d-flex flex-column flex-md-row mb-5">
     <div className="resume-content mr-auto">
-      <h3 className="mb-0">University of Colorado Boulder</h3>
-      <div className="subheading mb-3">Bachelor of Science</div>
-      <div>Computer Science - Web Development Track</div>
-      <p>GPA: 3.23</p>
+      <h3 className="mb-0">{props.Title}</h3>
+      <div className="subheading mb-3">{props.TitleDisciption}</div>
+      <div>{props.Information}</div>
+      <p>{props.GPA}</p>
     </div>
     <div className="resume-date text-md-right">
-      <span className="text-primary">August 2006 - May 2010</span>
+      <span className="text-primary">{props.TimePeriod}</span>
     </div>
   </div>
   );
@@ -247,29 +201,7 @@ const EducationDetailComponent = (props) => {
       <section className="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
         <div className="my-auto">
           <h2 className="mb-5">Education</h2>
-
-          <div className="resume-item d-flex flex-column flex-md-row mb-5">
-            <div className="resume-content mr-auto">
-              <h3 className="mb-0">University of Colorado Boulder</h3>
-              <div className="subheading mb-3">Bachelor of Science</div>
-              <div>Computer Science - Web Development Track</div>
-              <p>GPA: 3.23</p>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">August 2006 - May 2010</span>
-            </div>
-          </div>
-
-          <div className="resume-item d-flex flex-column flex-md-row">
-            <div className="resume-content mr-auto">
-              <h3 className="mb-0">James Buchanan High School</h3>
-              <div className="subheading mb-3">Technology Magnet Program</div>
-              <p>GPA: 3.56</p>
-            </div>
-            <div className="resume-date text-md-right">
-              <span className="text-primary">August 2002 - May 2006</span>
-            </div>
-          </div>
+          <EducationDetailList educationdetails={educationData}/>
         </div>
       </section>
     </div>
@@ -286,54 +218,64 @@ const SkillsDetailComponent = (props) => {
           <div className="subheading mb-3">Programming Languages &amp; Tools</div>
           <ul className="list-inline list-icons">
             <li className="list-inline-item">
-              <i className="devicons devicons-html5"></i>
+              <i className="devicon-dot-net-plain"></i>
+            </li>
+            <li className="list-inline-item">
+              <i className="devicon-csharp-plain"></i>
+            </li>
+            <li className="list-inline-item">
+              <i className="devicon-visualstudio-plain"></i>
             </li>
             <li className="list-inline-item">
               <i className="devicons devicons-css3"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-javascript"></i>
+              <i className="devicon-html5-plain"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-jquery"></i>
+              <i className="devicon-javascript-plain"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-sass"></i>
+              <i className="devicon-jquery-plain"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-less"></i>
+              <i className="devicon-react-original"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-bootstrap"></i>
-            </li>
-            <li claclassNamess="list-inline-item">
-              <i className="devicons devicons-wordpress"></i>
+              <i className="devicon-css3-plain"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-grunt"></i>
+              <i className="devicon-mysql-plain"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-gulp"></i>
+              <i className="devicon-oracle-original"></i>
             </li>
             <li className="list-inline-item">
-              <i className="devicons devicons-npm"></i>
+              <i className="devicon-ubuntu-plain"></i>
+            </li>
+            <li className="list-inline-item">
+              <i className="devicon-windows8-original"></i>
             </li>
           </ul>
 
-          <div className="subheading mb-3">Workflow</div>
+          {/* <div className="subheading mb-3">Workflow</div> */}
           <ul className="fa-ul mb-0">
             <li>
               <i className="fa-li fa fa-check"></i>
-              Mobile-First, Responsive Design</li>
+                Programming Languages: C#, Vb.net</li>
             <li>
               <i className="fa-li fa fa-check"></i>
-              Cross Browser Testing &amp; Debugging</li>
+                Database : SQL server, MySQL and Oracle</li>
             <li>
               <i className="fa-li fa fa-check"></i>
-              Cross Functional Teams</li>
+                Reporting Tools: Crystal Report , Fast Reports</li>
             <li>
               <i className="fa-li fa fa-check"></i>
-              Agile Development &amp; Scrum</li>
+                Agile Development &amp; Scrum</li>
+                <li>
+              <i className="fa-li fa fa-check"></i>
+                Mobile Application Development : Xamarin</li>
+                
           </ul>
         </div>
       </section>
@@ -396,11 +338,11 @@ const Page = (props) => {
   return (
     <div>
       <SideNavigaionBar />
-      
       <div className="container-fluid p-0" >
         <AboutComponent />
         <ExperienceDetail />
-        <EducationDetailComponent />
+        {/* <EducationDetails/> */}
+         <EducationDetailComponent />
         <SkillsDetailComponent />
         <InterestsDetailComponent />
         {/* <awardsDetailComponent/> */}
